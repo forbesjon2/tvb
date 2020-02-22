@@ -6,8 +6,8 @@ import os
 
 ########### You need to change username & password ###############
 ###########  to your accounts username & password  ###############
-username = "example username"
-password = "example password"
+username = "enter username here"
+password = "enter password here"
 ########## Dont touch anything below this line  ##################
 
 
