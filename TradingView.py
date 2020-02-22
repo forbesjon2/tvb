@@ -20,7 +20,7 @@ class TradingView:
         return res
 
 
-    def initialize(self):
+    def initialize(self, username, password):
         """
         Signs you in, opens the main chart, will return an instance of chromedriver
         """
@@ -31,8 +31,8 @@ class TradingView:
         driver.get('https://tradingview.com/#signin')
         
         # sign in, open chart
-        driver.find_element_by_name("username").send_keys("markermal3@gmail.com")
-        driver.find_element_by_name("password").send_keys("z2qBikdJ9TX4erH")
+        driver.find_element_by_name("username").send_keys(username)
+        driver.find_element_by_name("password").send_keys(password)
         driver.find_element_by_class_name("tv-button--loader").click()
         time.sleep(2)
         driver.get("https://www.tradingview.com/chart/G3QqB8yo/")
