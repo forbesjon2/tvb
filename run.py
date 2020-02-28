@@ -6,8 +6,10 @@ import os
 
 ########### You need to change username & password ###############
 ###########  to your accounts username & password  ###############
-username = "enter username here"
-password = "enter password here"
+# username = "markermal3@gmail.com"
+# password = "8!zc4rmAtSDcjBx"
+username = "forbesjon2@gmail.com"
+password = "giXky6-caqnuj-bebdas"
 ########## Dont touch anything below this line  ##################
 
 
