@@ -34,9 +34,9 @@ class TradingView:
         driver.find_element_by_name("username").send_keys(username)
         driver.find_element_by_name("password").send_keys(password)
         driver.find_element_by_class_name("tv-button--loader").click()
-        time.sleep(2)
+        time.sleep(5)
         driver.get("https://www.tradingview.com/chart/G3QqB8yo/")
-        time.sleep(3)
+        time.sleep(4)
         return driver
 
 
@@ -48,7 +48,7 @@ class TradingView:
             driver.find_element_by_class_name("input-3lfOzLDc").send_keys(Keys.BACK_SPACE)
         driver.find_element_by_class_name("input-3lfOzLDc").send_keys(stockName)
         driver.find_element_by_class_name("input-3lfOzLDc").send_keys(Keys.ENTER)
-        time.sleep(1)
+        time.sleep(3)
 
     def changeDate(self, driver, dateID):
         """
@@ -64,10 +64,10 @@ class TradingView:
         """
         dateID += 4
         driver.find_element_by_id("header-toolbar-intervals").click()
-        time.sleep(1)
+        time.sleep(3)
         dropdowns = driver.find_elements_by_class_name("item-2xPVYue0")
         dropdowns[dateID].click()
-        time.sleep(1)
+        time.sleep(3)
 
     def saveBacktest(self, name, stock, driver, dateID):
         """

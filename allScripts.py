@@ -1,4 +1,4 @@
-from TradingView import TradingView as tv
+﻿from TradingView import TradingView as tv
 import time
 import pandas as pd
 import re
@@ -51,7 +51,7 @@ driver = tv.initialize(username, password)
 for strategy in strategyList:
     driver.get("https://www.tradingview.com" + strategy)
     
-    time.sleep(3)
+    time.sleep(10)
     try:
         temp_dict = internalLogic(driver)
         df = pd.concat([temp_dict, df])
