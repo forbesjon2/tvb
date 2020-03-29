@@ -64,7 +64,7 @@ class TradingView:
         """
         dateID += 4
         driver.find_element_by_id("header-toolbar-intervals").click()
-        time.sleep(3)
+        time.sleep(4)
         dropdowns = driver.find_elements_by_class_name("item-2xPVYue0")
         dropdowns[dateID].click()
         time.sleep(3)

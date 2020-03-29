@@ -26,6 +26,15 @@ skts = re.sub(r'[^A-Z]','',input("skip to stock (leave blank if N/A): "))
 dateDict = {0:"30m", 1:"45m", 2:"1h", 3:"2h", 4:"3h", 5:"4h",6:"1d"}
 print("this might take a while...")
 
+
+def logic(stock, skts, driver, df):
+    tv.changeStock(driver, stock)
+    for i in range(0,6):
+        tv.changeDate(driver, i)
+        dictt = tv.saveBacktest(scriptName, stock, driver, i)
+        df = pd.concat([dictt, df])
+    return df
+
 # for each stock
 for stock in stockList:
     if len(skts) != 0:
@@ -34,16 +43,15 @@ for stock in stockList:
             continue
         else:
             skts = ""
-    tv.changeStock(driver, stock)
-    for i in range(0,6):
-        tv.changeDate(driver, i)
-        dictt = tv.saveBacktest(scriptName, stock, driver, i)
-        df = pd.concat([dictt, df])
-    print("updating output.csv")
     try:
-        os.remove("output.xlsx")
+        df = logic(stock, skts, driver, df)
+        print("updating output.csv")
+        try:
+            os.remove("output.xlsx")
+        except:
+            pass
+        df.to_excel("output.xlsx")
     except:
-        pass
-    df.to_excel("output.xlsx")
+        print("error at " + str(stock))
 driver.close()
 
